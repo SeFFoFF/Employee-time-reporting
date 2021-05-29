@@ -1,0 +1,25 @@
+.footer {
+    padding: 10px 0 0;
+
+    background-color: $base-color;
+
+    &__title {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+
+        color: $heading-color;
+
+        width: 280px;
+
+        margin: 0 auto;
+        padding: 0 0 10px;
+
+        a {
+            color: $third-text-color;
+
+            text-decoration: none;
+        }
+    }
+}

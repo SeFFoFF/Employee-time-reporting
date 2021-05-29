@@ -1,0 +1,215 @@
+@import 'variables.scss';
+
+.header {
+    max-width: 100%;
+    height: $header-height;
+
+    background-color: $second-color;
+
+    border-bottom: 1px solid #3D444E;
+
+    &__block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        height: $header-height;
+
+        position: relative;
+        z-index: 2;
+
+        .burger-menu {
+            display: none;
+        }
+
+        &-logo {
+            // width: 170px;
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        &-nav {
+            width: 900px;
+
+            .nav-list {
+                display: flex;
+                justify-content: space-between;
+
+                list-style: none;
+
+                padding: 0;
+                margin: 0;
+
+                .nav-link {
+                    display: block;
+                    position: relative;
+                    width: 127px;
+                    height: $header-height;
+
+                    font-size: 14px;
+                    font-weight: 600;
+                    font-style: normal;
+                    line-height: 21px;
+    
+                    color: $base-text-color;
+    
+                    text-decoration: none;
+
+                    li {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+
+                        width: 85px;
+                        text-align: center;
+                    }
+
+                    &:hover {
+                        background-color: rgba(143, 127, 255, 0.15);
+                    }
+                }
+
+                .active-link {
+                    width: 127px;
+                    height: $header-height;
+
+                    color: $third-text-color;
+                    
+                    background: rgba(143, 127, 255, 0.15);
+                    border-radius: 0px 0px 2px 2px;
+
+                    border-bottom: 3px solid $third-text-color;
+                }
+            }
+        }
+
+        &-user-img {
+            position: relative;
+            z-index: -1;
+            width: 110px;
+            height: 68px;
+
+            border-left: 1px solid #3D444E;
+
+            img {
+                position: absolute;
+                top: 50%;
+                right: 0px;
+                transform: translate(0, -50%);
+
+                cursor: pointer;
+                
+                &:hover {
+                    opacity: 0.85;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1286px) {
+
+    .header {
+
+        .header__block {
+
+            .burger-menu {
+                display: block;
+                position: relative;
+                width: 30px;
+                height: 20px;
+                z-index: 10;
+        
+                &::before,
+                &::after {
+                    content: '';
+                    background-color: $third-text-color;
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    left: 0;
+                    transition: all 0.3s ease 0s;
+                }
+        
+                &::before { top: 0; }
+                &::after { bottom: 0; }
+        
+                &.active::before {
+                    transform: rotate(45deg);
+                    top: 9px;
+                }
+                &.active::after {
+                    transform: rotate(-45deg);
+                    bottom: 9px;
+                }
+        
+                &.active span {
+                    transform: scale(0);
+                }
+        
+                span {
+                    @extend .burger-menu::before;
+                    top: 9px;
+                    transition: all 0.3s ease 0s;
+                }
+            }
+
+            .header__block-nav {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                padding: 100px;
+                transition: all 0.3s ease 0s;
+        
+                &.active {
+                    top: 0;
+                }
+        
+                .nav-list {
+                    flex-direction: column;
+                    align-items: center;
+        
+                    .nav-link {
+        
+                        li {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+        
+                            text-align: start;
+        
+                            font-size: 20px;
+                        }
+        
+                        &:hover {
+                            color: $third-text-color;
+                            background: none;
+                        }
+                    }
+        
+                    .active-link {
+                        height: $header-height;
+        
+                        color: $third-text-color;
+                        
+                        background: none;
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+
+    body.lock {
+        overflow: hidden;
+    }
+}
+

@@ -1,0 +1,21 @@
+@import 'reset.scss';
+@import '_header.scss';
+@import '_main.scss';
+@import '_footer.scss';
+
+._container {
+    width: 100%;
+    max-width: 1380px;
+
+    margin: 0 auto;
+    // padding: 0px 30px;
+    padding: 0px 60px;
+}
+
+.text-success {
+    color: #27AE60;
+}
+
+.text-warning {
+    color: #FF6A59;
+}

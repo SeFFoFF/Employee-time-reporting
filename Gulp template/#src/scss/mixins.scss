@@ -1,0 +1,12 @@
+@mixin sideline($width, $height, $top) {
+    position: absolute;
+    top: $top;
+    left: 0px;
+
+    width: $width;
+    height: $height;
+
+    background: linear-gradient(350.45deg, #BFBAFA 15.3%, #624BFF 100%, #8F7FFF 87.74%, #7F76F7 87.74%);
+    border-radius: 7px 0px 0px 7px;
+    transform: rotate(-180deg);
+}
